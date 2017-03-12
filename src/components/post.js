@@ -6,7 +6,6 @@ export default class Post extends Component {
     }
 
     render() {
-      console.log(this)
         return (
             <div>{this.props.post.content}</div>
         )

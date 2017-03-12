@@ -12,7 +12,6 @@ class Posts extends Component {
         super(props);
     }
     render() {
-      console.log(this) 
         let posts = <div></div>
         if (this.props.data.posts && this.props.data.posts instanceof Array) {
             posts = (
@@ -45,6 +44,8 @@ const allPosts = gql`
     }
   }
 `;
+
+export default Posts
 
 // Use the graphql container to run the allPosts query and pass the results to PostsContainer
 export const PostsContainer = graphql(allPosts, {

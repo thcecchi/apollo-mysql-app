@@ -7,5 +7,11 @@ export const resolvers = {
         posts(_, args){
             return Post.findAll({where: args});
         },
+    },
+
+    Mutation: {
+        addPost(_, args) {
+            return Post.create(args);
+        }
     }
 };

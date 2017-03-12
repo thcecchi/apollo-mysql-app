@@ -1,27 +1,27 @@
 import express from 'express';
 import mysql from 'mysql';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
 import { makeExecutableSchema } from 'graphql-tools';
 import { typeDefs } from './server/api/schema';
 import { resolvers } from './server/api/resolvers';
 
-const schema = makeExecutableSchema({
+const myGraphqlSchema = makeExecutableSchema({
   typeDefs,
-  resolvers
+  resolvers,
 });
 
-const myGraphqlSchema = schema;
-const PORT = 3001;
+const PORT = 8080;
 
 const app = express();
 
-//bodyParser is needed just for post
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema: myGraphqlSchema, context: {} }));
+app.use(cors())
 
-// app.get('/graphql',function(req,res){
-//   res.sendFile('index.html', { root: './public' });
-// });
+//bodyParser is needed just for post
+app.use('/graphql', bodyParser.json(), graphqlExpress({
+  schema: myGraphqlSchema
+}));
 
 // graphiql config
 app.use('/graphiql', graphiqlExpress({
