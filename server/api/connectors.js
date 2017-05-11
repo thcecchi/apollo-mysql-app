@@ -1,11 +1,13 @@
 import { Post } from './models';
+import isEmail from 'validator/lib/isEmail';
+import { User } from './models';
 
 import {
   createToken,
   verifyToken,
   encryptPassword,
   comparePassword
-} from './utils/auth';
+} from '../utils/authUtils';
 
 const connectors = {
   Auth: {
@@ -124,7 +126,7 @@ const connectors = {
   },
   User: {
     getUsers() {
-      return User.find({});
+      return User.findAll({});
     }
   }
 };

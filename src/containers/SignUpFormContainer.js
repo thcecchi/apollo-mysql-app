@@ -1,21 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @thcecchi
- Sign out
- Watch 6
-  Unstar 53
- Fork 16 jferrettiboke/react-auth-app-example
- Code  Issues 4  Pull requests 1  Projects 0  Wiki  Pulse  Graphs
-Branch: master Find file Copy pathreact-auth-app-example/client/src/containers/SignUpFormContainer.js
-9b21a7c  on Dec 17, 2016
-@jferrettiboke jferrettiboke Add client and server
-1 contributor
-RawBlameHistory
-80 lines (70 sloc)  1.77 KB
 import React from 'react';
 import { withRouter } from 'react-router';
 import { graphql } from 'react-apollo';

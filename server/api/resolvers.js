@@ -1,4 +1,6 @@
 import { Post } from './models';
+import connectors from './connectors';
+import { User } from './models';
 
 // create the resolve functions for the available GraphQL queries
 export const resolvers = {

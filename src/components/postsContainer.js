@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import Post from './post'
+import SignUpFormContainer from '../containers/SignUpFormContainer';
 
 /**
  * This React component is responsible for querying Apollo for the posts
@@ -16,6 +17,7 @@ class Posts extends Component {
         if (this.props.data.posts && this.props.data.posts instanceof Array) {
             posts = (
                 <div>
+                    <SignUpFormContainer />
                     {this.props.data.posts.map(function(post) {
                         return <Post key={post.id} post={post} />;
                     })}

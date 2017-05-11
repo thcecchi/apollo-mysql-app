@@ -1,13 +1,18 @@
 import Sequelize from 'sequelize';
 
 // create the connection
-const db = new Sequelize('apollodemo', "root", null, {
+const postdb = new Sequelize('apollodemo', "root", null, {
+    host: 'localhost',
+    dialect: 'mysql'
+});
+
+const userdb = new Sequelize('apollodemousers', "root", null, {
     host: 'localhost',
     dialect: 'mysql'
 });
 
 // define the post model
-const PostModel = db.define('post', {
+const PostModel = postdb.define('post', {
     content: { type: Sequelize.STRING },
     views: {type: Sequelize.INTEGER}
 }, {
@@ -15,7 +20,7 @@ const PostModel = db.define('post', {
 });
 
 // define the user model
-const UserModel = db.define('user', {
+const UserModel = userdb.define('user', {
   firstName: { type: Sequelize.STRING, required: true },
   lastName: { type: Sequelize.STRING, required: true },
   email: { type: Sequelize.STRING, required: true, unique: true },
@@ -26,10 +31,11 @@ const UserModel = db.define('user', {
 });
 
 // create the table if it doesn't exist yet
-db.sync();
+postdb.sync();
+userdb.sync();
 
 // export Post
-export const Post = db.models.post;
+export const Post = postdb.models.post;
 
 // export User
-export const User = db.models.user;
+export const User = userdb.models.user;
