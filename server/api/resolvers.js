@@ -13,7 +13,7 @@ export const resolvers = {
           .then((users) => {
             return users.map((user) => {
               return {
-                id: user._id,
+                id: user.id,
                 firstName: user.firstName,
                 lastName: user.lastName,
                 email: user.email

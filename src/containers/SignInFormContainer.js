@@ -16,7 +16,7 @@ class SignInFormContainer extends React.Component {
   handleSubmit(values) {
     this.props.mutate({ variables: values })
       .then((response) => {
-        if (response.data.signIn.errors.length <= 0) {
+        if (!response.data.signIn.errors) {
           this.props.signInDispatcher(response.data.signIn.token);
           this.props.router.replace('/');
         } else {
